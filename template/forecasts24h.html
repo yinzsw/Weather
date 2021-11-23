@@ -1,0 +1,135 @@
+<div class="forecasts24h-item px-2 py-1 w-100 d-flex justify-content-between">
+  <div class="fw-bold">24小时预报</div>
+  <div class="small fw-light">过去24小时气温<span data-unitc="{{ past24Temperature['Minimum']['Metric']['Value']
+  }}">{{past24Temperature['Minimum']['Metric']['Value']}}</span>°至<span data-unitc="{{ past24Temperature['Maximum']['Metric']['Value']
+  }}">{{ past24Temperature['Maximum']['Metric']['Value'] }}</span>° 降水量{{ past24Precipitation }}mm
+  </div>
+</div>
+<div class="forecasts24h-item">
+  <div class="forecasts24h-item-bottom-border position-absolute w-100 d-none d-md-block">
+    <div class="pre btn-box" data-btn="-"><span class="arrow left-arr"></span></div>
+    <div class="next btn-box" data-btn="+"><span class="arrow right-arr"></span></div>
+  </div>
+  <ul class="forecasts24h-item-nav user-select-none list-inline d-none d-sm-flex m-0 p-0">
+    {{ each future24hList }}
+    <li class="list-inline-item">
+      <div class="nav-info p-0 m-0 position-relative">
+        <div class="info-box d-flex h-100">
+          <div class="info-main px-4 flex-shrink-0 d-flex flex-column justify-content-between">
+            <div class="flex-item mt-4">
+              <div class="icon-weather-type"
+                   style="background-image: url('/img/weatherIcons/{{ $value.icon }}.svg')"></div>
+              <div class="mt-2 fw-bolder">
+                <span data-unitc="{{ $value.temperature }}">{{ $value.temperature }}</span>°
+              </div>
+              <div class="mt-2 fw-light small">{{ $value.weatherText }}</div>
+            </div>
+            <div class="flex-item mb-3">
+              <div class="mt-2 d-flex align-items-center justify-content-start">
+                <span class="d-inline-block icon-water"
+                      style="background: linear-gradient(bottom, #0073E6 0%, #0073E6 {{ $value.rainProbability*0.75 }}%, #DDD 0%, #DDD 100%);
+                             background: -webkit-linear-gradient(bottom, #0073E6 0%, #0073E6 {{ $value.rainProbability*0.75 }}%, #DDD 0%, #DDD 100%);"
+                      data-rain="{{  $value.rainProbability }}"></span>
+                <span>{{ $value.rainProbability }}%</span></div>
+              <div class="mt-2 fw-light small">{{ $value.windDirection }}风</div>
+            </div>
+          </div>
+          <div class="info-detail pt-4 pb-2 ps-3">
+            <div class=" d-flex align-items-center">
+              <span class="d-block icon me-1"
+                    style="background-image: url('/img/otherIcons/feelTemperature.svg');"></span>
+              <div class="d-flex flex-column justify-content-start">
+                <div class="fw-light opacity-75">体感温度</div>
+                <div class="fw-bold"><span data-unitc="{{ $value.feelTemperature }}">{{ $value.feelTemperature }}</span>°
+                </div>
+              </div>
+            </div>
+            <div class=" d-flex align-items-center">
+              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/humidity.svg');"></span>
+              <div class="d-flex flex-column justify-content-start">
+                <div class="fw-light opacity-75">湿度</div>
+                <div class="fw-bold">{{ $value.humidity }}%</div>
+              </div>
+            </div>
+            <div class=" d-flex align-items-center">
+              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/UV.svg');"></span>
+              <div class="d-flex flex-column justify-content-start">
+                <div class="fw-light opacity-75">紫外线</div>
+                <div class="fw-bold">{{ $value.UV }} · {{ $value.UVText }}</div>
+              </div>
+            </div>
+            <div class=" d-flex align-items-center">
+              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/visibility.svg');"></span>
+              <div class="d-flex flex-column justify-content-start">
+                <div class="fw-light opacity-75">能见度</div>
+                <div class="fw-bold">{{ $value.visibility }}km</div>
+              </div>
+            </div>
+            <div class=" d-flex align-items-center">
+              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/dew.svg');"></span>
+              <div class="d-flex flex-column justify-content-start">
+                <div class="fw-light opacity-75">露点</div>
+                <div class="fw-bold"><span data-unitc="{{ $value.dewPoint }}">{{ $value.dewPoint }}</span>°</div>
+              </div>
+            </div>
+            <div class=" d-flex align-items-center">
+              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/cloudCover.svg');"></span>
+              <div class="d-flex flex-column justify-content-start">
+                <div class="fw-light opacity-75">云量</div>
+                <div class="fw-bold">{{ $value.cloudCover }}%</div>
+              </div>
+            </div>
+            <div class=" d-flex align-items-center">
+              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/windGuest.svg');"></span>
+              <div class="d-flex flex-column justify-content-start">
+                <div class="fw-light opacity-75">阵风</div>
+                <div class="fw-bold">{{ $value.windGust }}km/h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-time w-100">{{ $value.time }}</div>
+    </li>
+    {{ /each }}
+    <li class="list-inline-item">
+      <div class="nomore p-0 m-0 position-relative active">
+        <div class="info-box px-3 d-flex h-100 d-flex justify-content-center align-items-center"><span
+                class="small fw-bold">＞︿＜没有更多了</span></div>
+      </div>
+    </li>
+  </ul>
+  <ul class="forecasts24h-item-nav user-select-none list-inline d-flex d-sm-none m-0 p-0">
+    {{ each future24hList }}
+    <li class="list-inline-item">
+      <div class="nav-info p-0 m-0 position-relative">
+        <div class="info-box d-flex h-100">
+          <div class="info-main px-3 px-md-4 flex-shrink-0 d-flex flex-column justify-content-between align-content-center">
+            <div class="flex-item mt-4">
+              <div class="icon-weather-type"
+                   style="background-image: url('/img/weatherIcons/{{ $value.icon }}.svg')"></div>
+              <div class="mt-2 fw-light  fw-bolder">{{ $value.weatherText }}</div>
+              <div class="mt-2 ps-1 small">
+                <span data-unitc="{{ $value.temperature }}">{{ $value.temperature }}</span>°
+              </div>
+            </div>
+            <div class="flex-item mb-4 mb-md-3">
+              <div class="mt-2 d-flex align-items-center justify-content-start">
+                <span class="d-inline-block icon-water"
+                      style="background: linear-gradient(bottom, #0073E6 0%, #0073E6 {{ $value.rainProbability*0.75 }}%, #DDD 0%, #DDD 100%);
+                             background: -webkit-linear-gradient(bottom, #0073E6 0%, #0073E6 {{ $value.rainProbability*0.75 }}%, #DDD 0%, #DDD 100%);"
+                      data-rain="{{  $value.rainProbability }}"></span>
+                <span>{{ $value.rainProbability }}%</span>
+              </div>
+              <div class="mt-2">
+                <span class="d-inline-block icon-wind me-1" style="transform: rotate({{ $value.windDegrees }}deg);"></span><span class="text-white-50 fw-light small">{{ ~~$value.windGust }}km/h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-time w-100">{{ $value.time }}</div>
+    </li>
+    {{ /each }}
+  </ul>
+</div>

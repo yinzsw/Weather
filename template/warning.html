@@ -1,0 +1,11 @@
+{{ if warningInfoList }}
+<div class="warning-item w-100 pb-1 px-2 fw-bolder"><span class="d-none d-md-block lead">天气预警</span><span class="d-block d-md-none">预警</span></div>
+<div class="warning-item pt-1 px-2 flex-grow-1">
+  {{ each warningInfoList }}
+  <div class="warning-info-item pb-1">
+    <div class="info-type"><span class="d-inline-block dot me-1 fw-bolder" style="background-color:{{ $value.color }};"></span>{{ $value.desc }}</div>
+    <pre class="info-text small fw-light">{{ $value.text }}</pre>
+  </div>
+  {{ /each }}
+</div>
+{{ /if }}

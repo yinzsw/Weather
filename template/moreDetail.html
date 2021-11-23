@@ -1,0 +1,100 @@
+<div class="more-detail-item px-2 py-1 w-100 d-flex justify-content-between">
+  <div class="fw-bold">更多详情</div>
+</div>
+<div class="more-detail-item position-relative">
+  <div class="center-line d-none d-md-block"></div>
+  <div class="me-1 sun-and-moon d-flex flex-column">
+    <div class="small fw-light mb-3">太阳与月亮</div>
+    <div class="view-content flex-grow-1">
+      <div class="d-flex flex-column justify-content-around">
+        <div class="d-flex align-items-center">
+          <div class="icon me-3" style="background-image: url('/img/otherIcons/UV.svg');"></div>
+          <div>
+            <div class="text-white-50">紫外线指数</div>
+            <div class="fw-bold">{{ UV }} · {{ UVText }}</div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="icon me-3" style="background-image: url('/img/sunAndMoon/{{ moon.moonIcon }}.png')"></div>
+          <div>
+            <div class="text-white-50">月相</div>
+            <div class="fw-bold">{{ moon.name }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column justify-content-around">
+        {{ each riseSetList }}
+        {{ set svg = `
+        <svg width="16" height="16" viewBox="0 0 16 16">
+          <circle cx="8" cy="8" r="8" fill="white" fill-opacity="0.3"></circle>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8H16Z"
+                fill="${ $value.color }"></path>
+        </svg>
+        `
+        }}
+        <div class="rise-set-item mb-2 mb-md-0">
+          <div class="rise-item d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center justify-content-center">{{@ svg }}</div>
+            <div class="text-white-50">{{ $value.riseText }}</div>
+            <div class="fw-bold">{{ $value.riseTime }}</div>
+          </div>
+          <div class="sun-item d-flex flex-column">
+            <svg width="120" height="50" viewBox="0 0 120 60" class=" d-block"
+                 style="border-bottom: 1px dashed rgba(255,255,255,.4)">
+              <circle r="50" cx="60" cy="60" fill="none" stroke="#ffffff" stroke-width="3px"
+                      stroke-opacity=".4"></circle>
+              <circle r="50" cx="60" cy="60" fill="none" stroke="{{ $value.color }}" stroke-width="3px"
+                      stroke-dashoffset="-157.07963267948966"
+                      stroke-dasharray="{{ $value.percentage * 157.07963267948966 }} 157.07963267948966"></circle>
+              <text x="60" y="48" text-anchor="middle" fill="white" font-size="12px" font-weight="bold">{{ $value.text
+                }}
+              </text>
+            </svg>
+          </div>
+          <div class="set-item d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center justify-content-center" style="transform: rotate(180deg);">{{@ svg
+              }}
+            </div>
+            <div class="text-white-50">{{ $value.setText }}</div>
+            <div class="fw-bold">{{ $value.setTime }}</div>
+          </div>
+        </div>
+        {{ /each }}
+      </div>
+    </div>
+  </div>
+  {{ if isShowAIR }}
+  <div class="ms-1 air-quality d-flex flex-column">
+    <div class="small fw-light mb-3">空气质量(µg/m<sup>3</sup>)</div>
+    <div class="view-content flex-grow-1">
+      <div class=" d-flex justify-content-center align-content-center flex-column">
+        <div class="d-flex justify-content-center">
+          <svg width="100" height="100" viewBox="0 0 108 108" >
+            <circle r="50" cx="54" cy="54" fill="none" stroke-width="8px" stroke="#ffffff" stroke-opacity=".2"></circle>
+            <circle r="50" cx="54" cy="54" fill="none" stroke-width="8px" stroke="{{ AQI.color }}" stroke-linecap="round"
+                    stroke-dasharray="{{ AQIIndex / 500 * 377 }} 377" stroke-opacity="{{ +!!AQIIndex }}"></circle>
+            <text x="54" y="54" text-anchor="middle" fill="{{ AQI.color }}" font-size="13px" font-weight="bold">{{ AQI.grade }} · {{ AQIIndex }}
+            </text>
+          </svg>
+        </div>
+        <div class="w-100 d-flex justify-content-center pt-2 fw-bolder">空气质量指数</div>
+      </div>
+      <div class="air-quality-detail w-100 h-100">
+        {{ each AQIOtherDetailList }}
+        <div class="d-flex flex-column px-2 py-1">
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="fw-bold">{{ $value.name }}</span>
+            <span class="small">{{ $value.AQIOther['grade'] }} · {{ $value.index }}</span>
+          </div>
+          <div class="w-100 h-100">
+            <svg viewBox="0,0,102,6" width="100%" height="4" class="w-100 h-100">
+              <line x1="1" y1="2" x2="101" y2="2" stroke="{{ $value.AQIOther['color'] }}" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        {{ /each }}
+      </div>
+    </div>
+  </div>
+  {{ /if }}
+</div>

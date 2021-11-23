@@ -1,0 +1,12 @@
+<div class="search-result-scroll">
+  {{ if data.length }}
+  {{ each data }}
+  <a class="p-1 d-block search-result-item" href="javascript:void(0);" data-info="{{ $value }}">
+    <span>{{ $value.name }}</span>
+    <div><small>{{ $value.belong }}</small></div>
+  </a>
+  {{ /each }}
+  {{ else }}
+  <span class="search-result-title"><strong>没找到结果</strong><small class="d-block">请检查你的输入</small></span>
+  {{ /if }}
+</div>

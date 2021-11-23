@@ -1,0 +1,24 @@
+<div class="weather-info-item mb-3 mb-sm-4 "><span class="fw-bold d-none d-sm-inline">当前天气</span>
+  <span class="small text-l text-white-50 fw-lighter">{{ obsTime }}</span>
+</div>
+<div class="weather-info-item mb-0 mb-sm-4 d-flex">
+  <div class="icon d-inline-block" style="background-image: url('/img/weatherIcons/{{ iconId }}.svg');"></div>
+  <div class="temp ms-2 d-inline-block"><span data-unitc="{{ temperature }}">{{ temperature }}</span>°</div>
+  <div class="type ms-5 d-flex flex-column justify-content-center">
+    <div class="state fw-bold mb-1">{{ weatherText }}
+      {{ if warning }}<a class="d-inline-block ms-2 weather-warning" href="javascript:void(0);"></a>{{ /if }}
+    </div>
+    <div class="apparent-temp text-white-50">体感温度<span class="ms-2 text-white"><span  data-unitc="{{ feelTemperature }}">{{ feelTemperature }}</span>°</span></div>
+  </div>
+</div>
+<div class="weather-info-item pb-3 pb-md-0">
+  {{ infoText }}<span class="ms-2 text-white"><span  data-unitc="{{ dailyTemperature }}">{{ dailyTemperature }}</span>°。</span>
+</div>
+<div class="weather-info-item flex-grow-1 d-flex justify-content-between  align-items-end ">
+  <div class="other d-flex flex-column " title="{{ AQI['grade'] }}"><span class="text-white-50">空气质量</span><span><span class="d-inline-block dot me-1" style="background-color:{{ AQI['color'] }};"></span>{{ AQIIndex }}</span></div>
+  <div class="other d-flex flex-column "><span class="text-white-50">能见度</span><span>{{ visibility }}km</span></div>
+  <div class="other d-flex flex-column "><span class="text-white-50">风速</span><span class="d-flex align-items-center"><span class="me-1 icon-wind" style="transform: rotate({{ windDegrees }}deg);"></span>{{ wind }}km/h</span></div>
+  <div class="other d-flex flex-column "><span class="text-white-50">湿度</span><span>{{ humidity }}%</span></div>
+  <div class="other d-none d-sm-flex flex-column "><span class="text-white-50">气压</span><span>{{ pressure }}hPa</span></div>
+  <div class="other d-none d-sm-flex flex-column "><span class="text-white-50">露点</span><span><span  data-unitc="{{ dewPoint }}">{{ dewPoint }}</span>°</span></div>
+</div>

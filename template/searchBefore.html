@@ -1,0 +1,18 @@
+<a class="location d-flex justify-content-between" href="javascript:void(0);"><span>检测我的位置</span>
+  <img src="./img/location.svg" alt="location" width="15"></a>
+<div class="recently-search mt-1 mb-1">
+  {{ if data.length }}
+  <span class="recently-search-title"><strong>最近的搜索</strong></span>
+  <div class="recently-search-scroll">
+    {{ each data }}
+    <div class="recently-search-item d-flex">
+      <a class="p-1 d-block flex-grow-1" href="javascript:void(0);" data-info="{{ $value }}">
+        <span>{{ $value['name'] }}</span>
+        <div><small>{{ $value.belong }}</small></div>
+      </a>
+      <img class="me-1" src="./img/delete.svg" alt="delete" width="18">
+    </div>
+    {{ /each }}
+  </div>
+  {{ /if }}
+</div>

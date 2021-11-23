@@ -1,0 +1,88 @@
+@media screen and (max-width: 768px) {
+  .container-md.content {
+    padding-right: 0;
+    padding-left: 0;
+    grid-template-areas: "sundry-bar" "today" "warning" "forecasts10d" "forecasts24h" "more-detail" "footer";
+  }
+
+  #today-weather, #today-almanac, #forecasts24h, #forecasts10d, #more-detail {
+    width: 100%;
+    min-width: 100%;
+    font-size: 13px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  #sundry-bar, #warning, #today {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #today-weather {
+    height: auto;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+  }
+
+  #today-weather .weather-info-item .icon {
+    width: 58px;
+    height: 58px;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+  }
+
+  #today-weather .weather-info-item .temp {
+    font-size: 56px;
+    line-height: 58px;
+  }
+
+  #warning {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction: column;
+    position: relative;;
+    top: 0;
+    right: 0;
+    font-size: 13px;
+  }
+
+  #warning .warning-item { color: white; }
+
+  #warning .warning-item:nth-of-type(2) {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+  }
+
+  #forecasts24h .forecasts24h-item ul.forecasts24h-item-nav li .nav-info { width: 72px; }
+
+  #forecasts24h .forecasts24h-item ul.forecasts24h-item-nav li .nav-info:not(.active):hover { border-bottom: none; }
+
+  #forecasts24h .forecasts24h-item ul.forecasts24h-item-nav li .nav-info .info-box .info-main .icon-weather-type {
+    width: 25px;
+    height: 25px;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    filter: drop-shadow(2px 2px 5px rgba(255, 255, 255, .08));
+  }
+
+  #forecasts24h .forecasts24h-item ul.forecasts24h-item-nav li .nav-info .info-box .info-main .icon-wind {
+    width: 14px;
+    height: 14px;
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-image: url("/img/windArrow.svg");
+  }
+
+  #more-detail { height: 400px; }
+
+  #more-detail .more-detail-item:nth-of-type(2) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 40px;
+  }
+}
