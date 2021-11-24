@@ -1,6 +1,6 @@
 const BASE_URL = {
   dev: "http://127.0.0.1/api",
-  pro: "https://weather.yinzsw.top/api"
+  pro: "https://0.0.0.0/api"
 }.dev;
 
 export function request(config) {
