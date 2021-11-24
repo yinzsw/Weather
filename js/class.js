@@ -127,31 +127,17 @@ export class Forecasts10dEChars {
       position: "top",
       textStyle: {color: "#FFFFFF", fontSize: "12", fontWeight: "bolder"}
     };
-    const dataZoom = [
-      {
-        type: 'inside',
-        disabled: false,
-        xAxisIndex: 0,
-        zoomLock: true,
-        preventDefaultMouseMove: false,
-        filterMode: "empty",
-        startValue: 1,
-        endValue: ~~(this.el.clientWidth / 50),
-        start: null,
-        end: null,
+    const tooltip = {
+      trigger: 'axis',
+      formatter([item1, item2]) {
+        return `<div class="fw-bolder">${item1.name}</div>
+                  <div>${item1.marker} ${item1.seriesName} <strong>${item1.value}°</strong></div>
+                  <div>${item2.marker} ${item2.seriesName} <strong>${item2.value}°</strong></div>`
       }
-    ]
+    };
     const option = {
       animationDuration: 600,
       backgroundColor: 'rgba(0,0,0,0)',
-      tooltip: {
-        trigger: 'axis',
-        formatter([item1, item2]) {
-          return `<div class="fw-bolder">${item1.name}</div>
-                  <div>${item1.marker} ${item1.seriesName} <strong>${item1.value}°</strong></div>
-                  <div>${item2.marker} ${item2.seriesName} <strong>${item2.value}°</strong></div>`
-        }
-      },
       grid: {
         left: '-7%',
         right: '-7%',
@@ -229,11 +215,11 @@ export class Forecasts10dEChars {
         }
       ]
     };
-    if (isMobile()) option.dataZoom = dataZoom;
+    if (!isMobile()) option.tooltip = tooltip;
     option.xAxis.data = this.data.title;
     option.series[0].data = this.data.max;
     option.series[1].data = this.data.min;
-    const echars10d = echarts.init(this.el);
+    const echars10d = echarts.init(this.el, null, {renderer: ['canvas', 'svg'][+isMobile()]});
     echars10d.setOption(option);
     setTimeout(() => new ResizeObserver(() => echars10d.resize()).observe(this.el), 600)
   }

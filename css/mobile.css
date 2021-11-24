@@ -58,6 +58,13 @@
     overflow: hidden;
   }
 
+  #forecasts10d .forecasts10d-item:nth-of-type(2){
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  #forecasts10d #forecasts10d-echars { width: 200vw; }
+
   #forecasts24h .forecasts24h-item ul.forecasts24h-item-nav li .nav-info { width: 72px; }
 
   #forecasts24h .forecasts24h-item ul.forecasts24h-item-nav li .nav-info:not(.active):hover { border-bottom: none; }
