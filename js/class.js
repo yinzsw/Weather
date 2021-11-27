@@ -300,12 +300,13 @@ export class WeatherInfo {
     this.MOON_ENUM = {
       New: {moonIcon: 1, name: "新月"},
       WaningCrescent: {moonIcon: 2, name: "残月"},
-      ThirdQuarter: {moonIcon: 3, name: "下弦月"},
+      Third: {moonIcon: 3, name: "下弦月"},
+      Last: {moonIcon: 3, name: "下弦月"},
       WaningGibbous: {moonIcon: 4, name: "亏凸月"},
       Full: {moonIcon: 5, name: "满月"},
       WaxingGibbous: {moonIcon: 6, name: "盈凸月"},
-      FirstQuarter: {moonIcon: 7, name: "上弦月"},
-      WaxingCrescent: {moonIcon: 8, name: "蛾眉月"},
+      First: {moonIcon: 7, name: "上弦月"},
+      WaxingCrescent: {moonIcon: 8, name: "蛾眉月"}
     };
     this.initTemplates().then();
   }
