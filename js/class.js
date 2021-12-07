@@ -421,7 +421,7 @@ export class WeatherInfo {
     const data = {
       obsTime: dateFormat(new Date(this.todayWeather["EpochTime"] * 1000), "hh:mm"),
       iconId: this.todayWeather["WeatherIcon"],
-      temperature: this.todayWeather["ApparentTemperature"]["Metric"]["Value"],
+      temperature: this.todayWeather["Temperature"]["Metric"]["Value"],
       weatherText: this.WEATHER_ENUM[this.todayWeather["WeatherIcon"]],
       warning: !!this.warning.length,
       infoText: infoText,
