@@ -25,6 +25,7 @@ $(function () {
     search.renderTplDeb(e.type);
     search.show();
   });
+
   //加载当前位置信息
   searchResultEl.on("mousedown", ".location", async () => {
     const o = await search.getCurrentPositionData();
@@ -33,6 +34,7 @@ $(function () {
     warningEl.slideUp(0);
     weatherInfo.loadWeatherInfo().then();
   });
+
   //搜索信息按下事件
   searchResultEl.on("mousedown", ".search-result-item,.recently-search-item a", e => {
     search.saveInfoToLocal(JSON.parse(e.currentTarget.dataset.info));
@@ -40,8 +42,10 @@ $(function () {
     warningEl.slideUp(0);
     weatherInfo.loadWeatherInfo().then();
   });
+
   //历史信息删除按下事件
   searchResultEl.on("mousedown", ".recently-search-item img", e => search.deleteInfoInLocal($(e.currentTarget).parent().index()));
+
   //切换温度单位
   sundryEl.on("click", ".switch-unit div", e => {
     const targetEl = e.currentTarget;
@@ -52,18 +56,21 @@ $(function () {
     sundryBar.switchUnit($(targetEl));
     weatherInfo.showECharsIn10dTpl(targetEl.dataset.unit);
   });
+
   //警告信息展示
   todayWeatherEl.on("click", ".weather-warning", () => {
     const display = warningEl.css("display");
     if (isMobile()) return display === "flex" ? warningEl.slideUp(350) : warningEl.slideDown(500).css("display", "flex");
     display === "flex" ? warningEl.fadeOut(200) : warningEl.fadeIn(800).css("display", "flex");
   });
+
   //展开天气信息24h
   isMobile() || forecasts24hEl.on("click", ".nav-info", e => {
     const target = $(e.currentTarget);
     target.toggleClass("active");
     target.parent().siblings().children(".nav-info").removeClass("active");
   });
+
   //滚动窗口按钮
   forecasts24hEl.on("click", ".btn-box", e => {
     const forecasts24hNavEl = forecasts24hEl.find(".forecasts24h-item-nav");

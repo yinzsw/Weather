@@ -119,7 +119,7 @@ export class Forecasts10dEChars {
       align: 'center',
       lineHeight: 45,
       border: "1px solid red",
-      backgroundColor: {image: `/img/weatherIcons/${cur}.svg`}
+      backgroundColor: {image: `./img/weatherIcons/${cur}.svg`}
     }, pre), {});
     const label = {
       show: true,
@@ -176,7 +176,7 @@ export class Forecasts10dEChars {
               width: 16,
               lineHeight: 20,
               align: 'center',
-              backgroundColor: {image: "/img/otherIcons/watermark.svg"}
+              backgroundColor: {image: "./img/otherIcons/watermark.svg"}
             }
           },
         },
@@ -388,10 +388,10 @@ export class WeatherInfo {
     localStorage.setItem("background", style['backgroundColor'][+isDayTime][0]);
     if (this.isMobile) return this.contentEl.css({
       backgroundColor: `${style["backgroundColor"][+isDayTime][1]}`,
-      backgroundImage: `url('/img/backgroundImgMobile/${style["backgroundImage"][+isDayTime]}')`
+      backgroundImage: `url('./img/backgroundImgMobile/${style["backgroundImage"][+isDayTime]}')`
     });
     this.bodyEl.css("background", style["backgroundColor"][+isDayTime][0]);
-    this.todayWeatherEl.css("background", `url('/img/backgroundImg/${style["backgroundImage"][+isDayTime]}')`);
+    this.todayWeatherEl.css("background", `url('./img/backgroundImg/${style["backgroundImage"][+isDayTime]}')`);
   }
 
   __renderWarningTpl() {

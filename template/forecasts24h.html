@@ -18,7 +18,7 @@
           <div class="info-main px-4 flex-shrink-0 d-flex flex-column justify-content-between">
             <div class="flex-item mt-4">
               <div class="icon-weather-type"
-                   style="background-image: url('/img/weatherIcons/{{ $value.icon }}.svg')"></div>
+                   style="background-image: url('./img/weatherIcons/{{ $value.icon }}.svg')"></div>
               <div class="mt-2 fw-bolder">
                 <span data-unitc="{{ $value.temperature }}">{{ $value.temperature }}</span>°
               </div>
@@ -37,7 +37,7 @@
           <div class="info-detail pt-4 pb-2 ps-3">
             <div class=" d-flex align-items-center">
               <span class="d-block icon me-1"
-                    style="background-image: url('/img/otherIcons/feelTemperature.svg');"></span>
+                    style="background-image: url('./img/otherIcons/feelTemperature.svg');"></span>
               <div class="d-flex flex-column justify-content-start">
                 <div class="fw-light opacity-75">体感温度</div>
                 <div class="fw-bold"><span data-unitc="{{ $value.feelTemperature }}">{{ $value.feelTemperature }}</span>°
@@ -45,42 +45,42 @@
               </div>
             </div>
             <div class=" d-flex align-items-center">
-              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/humidity.svg');"></span>
+              <span class="d-block icon me-1" style="background-image: url('./img/otherIcons/humidity.svg');"></span>
               <div class="d-flex flex-column justify-content-start">
                 <div class="fw-light opacity-75">湿度</div>
                 <div class="fw-bold">{{ $value.humidity }}%</div>
               </div>
             </div>
             <div class=" d-flex align-items-center">
-              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/UV.svg');"></span>
+              <span class="d-block icon me-1" style="background-image: url('./img/otherIcons/UV.svg');"></span>
               <div class="d-flex flex-column justify-content-start">
                 <div class="fw-light opacity-75">紫外线</div>
                 <div class="fw-bold">{{ $value.UV }} · {{ $value.UVText }}</div>
               </div>
             </div>
             <div class=" d-flex align-items-center">
-              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/visibility.svg');"></span>
+              <span class="d-block icon me-1" style="background-image: url('./img/otherIcons/visibility.svg');"></span>
               <div class="d-flex flex-column justify-content-start">
                 <div class="fw-light opacity-75">能见度</div>
                 <div class="fw-bold">{{ $value.visibility }}km</div>
               </div>
             </div>
             <div class=" d-flex align-items-center">
-              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/dew.svg');"></span>
+              <span class="d-block icon me-1" style="background-image: url('./img/otherIcons/dew.svg');"></span>
               <div class="d-flex flex-column justify-content-start">
                 <div class="fw-light opacity-75">露点</div>
                 <div class="fw-bold"><span data-unitc="{{ $value.dewPoint }}">{{ $value.dewPoint }}</span>°</div>
               </div>
             </div>
             <div class=" d-flex align-items-center">
-              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/cloudCover.svg');"></span>
+              <span class="d-block icon me-1" style="background-image: url('./img/otherIcons/cloudCover.svg');"></span>
               <div class="d-flex flex-column justify-content-start">
                 <div class="fw-light opacity-75">云量</div>
                 <div class="fw-bold">{{ $value.cloudCover }}%</div>
               </div>
             </div>
             <div class=" d-flex align-items-center">
-              <span class="d-block icon me-1" style="background-image: url('/img/otherIcons/windGuest.svg');"></span>
+              <span class="d-block icon me-1" style="background-image: url('./img/otherIcons/windGuest.svg');"></span>
               <div class="d-flex flex-column justify-content-start">
                 <div class="fw-light opacity-75">阵风</div>
                 <div class="fw-bold">{{ $value.windGust }}km/h</div>
@@ -107,7 +107,7 @@
           <div class="info-main px-1 px-md-4 flex-shrink-0 d-flex flex-column justify-content-between align-content-center">
             <div class="flex-item mt-4">
               <div class="icon-weather-type"
-                   style="background-image: url('/img/weatherIcons/{{ $value.icon }}.svg')"></div>
+                   style="background-image: url('./img/weatherIcons/{{ $value.icon }}.svg')"></div>
               <div class="mt-2 fw-light  fw-bolder">{{ $value.weatherText }}</div>
               <div class="mt-2 ps-1 small">
                 <span data-unitc="{{ $value.temperature }}">{{ $value.temperature }}</span>°

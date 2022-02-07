@@ -1,5 +1,5 @@
 const BASE_URL = {
-  dev: "http://127.0.0.1/api",
+  dev: "http://127.0.0.1:8080/api",
   pro: "https://0.0.0.0/api"
 }.dev;
 

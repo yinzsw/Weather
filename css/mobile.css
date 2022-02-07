@@ -82,7 +82,7 @@
     height: 14px;
     background-size: 14px 14px;
     background-repeat: no-repeat;
-    background-image: url("/img/windArrow.svg");
+    background-image: url("../img/windArrow.svg");
   }
 
   #more-detail { height: 400px; }
